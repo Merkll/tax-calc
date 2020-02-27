@@ -16,10 +16,7 @@
     "db:seed": "yarn sequelize-cli:ts db:seed:all",
     "db:undo": "yarn sequelize-cli:ts db:migrate:undo:all",
     "generate:doc": "yarn build && swagger-jsdoc -d build/src/config/swagger.js  -o ./docs/swagger.json && rm -rf ./build",
-    "sequelize-cli:ts": "./sequelize.sh $*",
-    "test": "mocha -r ts-node/register -r tsconfig-paths/register tests/test.ts --exit",
-    "pretest": "yarn start:test:db && cross-env NODE_ENV=test yarn db:migrate",
-    "posttest": "yarn stop:test:db"
+    "sequelize-cli:ts": "./sequelize.sh $*"
   },
   "dependencies": {
     "@types/jsonwebtoken": "^8.3.7",
