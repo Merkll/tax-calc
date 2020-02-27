@@ -15,7 +15,7 @@
     "db:rollback": "yarn db:undo && yarn db:migrate",
     "db:seed": "yarn sequelize-cli:ts db:seed:all",
     "db:undo": "yarn sequelize-cli:ts db:migrate:undo:all",
-    "generate:doc": "yarn build && swagger-jsdoc -d dist/swagger.ts  -o ./docs/swagger.json && rm -rf ./build",
+    "generate:doc": "yarn build && swagger-jsdoc -d build/src/config/swagger.js  -o ./docs/swagger.json && rm -rf ./build",
     "sequelize-cli:ts": "./sequelize.sh $*",
     "test": "mocha -r ts-node/register -r tsconfig-paths/register tests/test.ts --exit",
     "pretest": "yarn start:test:db && cross-env NODE_ENV=test yarn db:migrate",
@@ -33,6 +33,7 @@
     "morgan": "^1.9.1",
     "pg": "^7.17.0",
     "sequelize": "^5.21.3",
+    "swagger-jsdoc": "^3.5.0",
     "swagger-ui-express": "^4.1.3",
     "validator": "^12.1.0"
   },

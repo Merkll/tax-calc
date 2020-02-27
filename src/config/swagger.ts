@@ -1,7 +1,7 @@
 import path from 'path';
 
-const routesPath = path.resolve(process.cwd(), __dirname, 'routes/*.ts');
-
+const routesPath = path.resolve(process.cwd(), __dirname, '../routes/**/*.js');
+console.log(routesPath);
 
 const config = {
   info: {
