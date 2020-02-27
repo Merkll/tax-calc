@@ -1,0 +1,6 @@
+module.exports = {
+  'config': 'db/postgresql/sequelize.config.js',
+  'models-path': 'db/postgresql/models',
+  'seeders-path': 'db/postgresql/seeders',
+  'migrations-path': 'db/postgresql/migrations'
+}

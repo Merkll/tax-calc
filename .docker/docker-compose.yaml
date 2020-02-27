@@ -1,0 +1,36 @@
+version: '3'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile-api
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - POSTGRESQL_DATABASE_URL=postgres://zenith:zenith@db.local:5432/zenith
+    links:
+      - db:db.local
+    depends_on:
+      - db
+  db:
+    image: postgres
+    volumes:
+      - ./.postgres-data:/var/lib/postgresql/data:delegated
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=zenith
+      - POSTGRES_USER=zenith
+      - POSTGRES_DB=zenith
+    # env_file:
+    #   - .env
+  testdb:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=zenith_test
+      - POSTGRES_USER=zenith_test
+      - POSTGRES_DB=zenith_test
+  
