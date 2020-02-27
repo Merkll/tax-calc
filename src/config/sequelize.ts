@@ -18,11 +18,11 @@ declare global {
 global.debug = Debug('db');
 
 const environment = process.env.NODE_ENV || 'development';
-const { POSTGRESQL_DATABASE_URL, POSTGRESQL_DATABASE_TEST_URL } = process.env;
+const { POSTGRESQL_DATABASE_URL, POSTGRESQL_DATABASE_TEST_URL, DATABASE_URL } = process.env;
 
 const databaseUrls = {
   development: POSTGRESQL_DATABASE_URL,
-  staging: POSTGRESQL_DATABASE_URL,
+  staging: DATABASE_URL,
   test: POSTGRESQL_DATABASE_TEST_URL,
   production: POSTGRESQL_DATABASE_URL
 };
