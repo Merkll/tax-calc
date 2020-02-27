@@ -1,5 +1,5 @@
-const calculateTaxByRate = (amount, rate) => {
-  return (amount * (rate / 100)).toFixed(2);
+const calculateTaxByRate = (amount, rate, tax) => {
+  return (+tax + (amount * (rate / 100))).toFixed(2);
 };
 
 export const calculateTaxFromDagrations = (amount: number, dagrations) => {
@@ -10,9 +10,9 @@ export const calculateTaxFromDagrations = (amount: number, dagrations) => {
     const tmpBalance = balance - monthlyAmount;
 
     if (tmpBalance < 0) return acc;
-    return { balance: tmpBalance, tax: calculateTaxByRate(monthlyAmount, rate) }
+    return { balance: tmpBalance, tax: calculateTaxByRate(monthlyAmount, rate, tax) }
 
-  }, { balance: amount, tax: 0 })
+  }, { balance: +amount, tax: 0 })
 
   return calculatedTax
 };
