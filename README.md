@@ -11,3 +11,5 @@ Run the following commands sequentially
 * RUN ```yarn db:migrate```
 * RUN ```yarn dev```
 
+### For API docs, visit ```GET /docs```
+
